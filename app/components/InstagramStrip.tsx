@@ -6,16 +6,16 @@ const IG_URL = "https://www.instagram.com/dubtech_customs/";
 
 const IG_POSTS = [
   {
-    src: "https://images.unsplash.com/photo-1622199678703-5eb7d55ad77f?auto=format&fit=crop&w=400&q=80",
-    alt: "VW Golf MK7 silver — Dubtech Customs Instagram build post",
+    src: "/images/instagram/tile-1.webp",
+    alt: "VW Golf MK2 on gold BBS alloys",
   },
   {
-    src: "https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?auto=format&fit=crop&w=400&q=80",
-    alt: "Modified coupe on stance — Dubtech Customs Instagram",
+    src: "/images/instagram/tile-2.webp",
+    alt: "Audi RS6 front at detailing studio",
   },
   {
-    src: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=400&q=80",
-    alt: "Car wheel detail and tyre profile — Dubtech Customs Instagram",
+    src: "/images/instagram/tile-3.webp",
+    alt: "Black Audi RS6 Avant side profile",
   },
 ];
 
