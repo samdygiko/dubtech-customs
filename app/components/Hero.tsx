@@ -1,3 +1,19 @@
+"use client";
+
+import Image from "next/image";
+
+const IG_URL = "https://www.instagram.com/dubtech_customs";
+
+function InstagramIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 export default function Hero() {
   return (
     <>
@@ -12,51 +28,44 @@ export default function Hero() {
           paddingTop: "64px",
         }}
       >
-        {/* Background glow */}
-        <div
-          style={{
-            position: "absolute",
-            top: "20%",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "900px",
-            height: "600px",
-            background:
-              "radial-gradient(ellipse at center, rgba(124,58,237,0.18) 0%, rgba(124,58,237,0.06) 45%, transparent 70%)",
-            pointerEvents: "none",
-          }}
+        {/* Background photo */}
+        <Image
+          src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?auto=format&fit=crop&w=1920&q=80"
+          alt="Modified VW Golf — dark moody automotive photography"
+          fill
+          priority
+          style={{ objectFit: "cover", objectPosition: "center 40%" }}
         />
-        {/* Subtle grid overlay */}
+
+        {/* Purple duotone overlay */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage:
-              "linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)",
-            backgroundSize: "80px 80px",
-            opacity: 0.4,
+            background:
+              "linear-gradient(135deg, rgba(15,8,24,0.97) 0%, rgba(15,8,24,0.82) 55%, rgba(31,18,48,0.60) 100%)",
+          }}
+        />
+
+        {/* Purple glow */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "25%",
+            right: "15%",
+            width: "700px",
+            height: "500px",
+            background:
+              "radial-gradient(ellipse at center, rgba(123,44,191,0.22) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
 
-        {/* Main content */}
+        {/* Content */}
         <div style={{ position: "relative", padding: "0 2.5rem 5rem" }}>
           {/* Eyebrow */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "1rem",
-              marginBottom: "1.5rem",
-            }}
-          >
-            <div
-              style={{
-                width: "2rem",
-                height: "1px",
-                background: "var(--accent-mid)",
-              }}
-            />
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
+            <div style={{ width: "2rem", height: "1px", background: "var(--accent-mid)" }} />
             <span
               style={{
                 fontFamily: "var(--font-space), sans-serif",
@@ -67,7 +76,7 @@ export default function Hero() {
                 fontWeight: 500,
               }}
             >
-              Brentwood, Essex — Est. Custom Car Specialists
+              Brentwood, Essex — Custom Car Specialists
             </span>
           </div>
 
@@ -112,44 +121,74 @@ export default function Hero() {
               }}
             >
               Vehicle remapping, wheel refurbishment, MOT testing,
-              used VW parts &amp; 4x4 specialist. Over 7,000 builds
+              used VW parts &amp; recovery. Over 7,000 builds
               documented. 4.5★ on Google.
             </p>
 
-            <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem", alignItems: "flex-end" }}>
+              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+                <a
+                  href="#services"
+                  className="cta-shimmer"
+                  style={{
+                    fontFamily: "var(--font-space), sans-serif",
+                    fontSize: "0.75rem",
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    fontWeight: 700,
+                    color: "var(--text)",
+                    padding: "1rem 2.25rem",
+                    textDecoration: "none",
+                    display: "inline-block",
+                  }}
+                >
+                  Our Services
+                </a>
+                <a
+                  href="tel:07469257945"
+                  style={{
+                    fontFamily: "var(--font-space), sans-serif",
+                    fontSize: "0.75rem",
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    fontWeight: 700,
+                    color: "var(--text)",
+                    border: "1px solid var(--border-strong)",
+                    padding: "1rem 2.25rem",
+                    textDecoration: "none",
+                    display: "inline-block",
+                    transition: "border-color 0.2s",
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--accent-mid)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--border-strong)")}
+                >
+                  07469 257945
+                </a>
+              </div>
+
+              {/* Instagram pill */}
               <a
-                href="#services"
+                href={IG_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
                   fontFamily: "var(--font-space), sans-serif",
-                  fontSize: "0.75rem",
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  fontWeight: 700,
-                  color: "var(--bg)",
-                  background: "var(--accent-mid)",
-                  padding: "1rem 2.25rem",
+                  fontSize: "0.72rem",
+                  letterSpacing: "0.08em",
+                  color: "var(--accent-light)",
                   textDecoration: "none",
-                  display: "inline-block",
+                  border: "1px solid rgba(199,125,255,0.25)",
+                  padding: "0.5rem 1rem",
+                  transition: "border-color 0.2s, color 0.2s",
                 }}
+                onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(199,125,255,0.6)")}
+                onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(199,125,255,0.25)")}
               >
-                Our Services
-              </a>
-              <a
-                href="tel:07469257945"
-                style={{
-                  fontFamily: "var(--font-space), sans-serif",
-                  fontSize: "0.75rem",
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  fontWeight: 700,
-                  color: "var(--text)",
-                  border: "1px solid var(--border-strong)",
-                  padding: "1rem 2.25rem",
-                  textDecoration: "none",
-                  display: "inline-block",
-                }}
-              >
-                07469 257945
+                <InstagramIcon />
+                @dubtech_customs
               </a>
             </div>
           </div>
@@ -184,7 +223,6 @@ export default function Hero() {
                 MOT Testing&nbsp;&nbsp;·&nbsp;&nbsp;
                 Used VW Parts&nbsp;&nbsp;·&nbsp;&nbsp;
                 Recovery &amp; Transport&nbsp;&nbsp;·&nbsp;&nbsp;
-                4x4 Specialist&nbsp;&nbsp;·&nbsp;&nbsp;
                 South Weald, Brentwood Essex&nbsp;&nbsp;·&nbsp;&nbsp;
               </span>
             ))}

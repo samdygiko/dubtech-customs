@@ -1,3 +1,5 @@
+"use client";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -63,7 +65,7 @@ export default function Footer() {
             Services
           </span>
           <nav style={{ display: "flex", flexDirection: "column", gap: "0.65rem" }}>
-            {["Vehicle Remapping", "Wheel Refurbishment", "MOT Testing", "Used VW Parts", "Recovery & Transport", "4x4 Specialist"].map((s) => (
+            {["Used VW Parts", "Professional Wheel Refurb", "Vehicle Remapping", "Recovery & Transportation", "MOTs"].map((s) => (
               <span
                 key={s}
                 style={{
@@ -109,9 +111,16 @@ export default function Footer() {
               href="https://www.instagram.com/dubtech_customs"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ fontFamily: "var(--font-space), sans-serif", fontSize: "0.875rem", color: "var(--muted)", textDecoration: "none" }}
+              style={{ fontFamily: "var(--font-space), sans-serif", fontSize: "0.875rem", color: "var(--muted)", textDecoration: "none", display: "flex", alignItems: "center", gap: "0.4rem", transition: "color 0.2s" }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--accent-light)")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--muted)")}
             >
-              @dubtech_customs →
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+              @dubtech_customs
             </a>
           </div>
         </div>
