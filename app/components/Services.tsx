@@ -4,37 +4,37 @@ const SERVICES = [
   {
     num: "01",
     title: "Used VW Parts",
-    desc: "Quality used Volkswagen Group parts sourced and sold. Golf, Polo, Audi, SEAT, Skoda — if it's VAG, we've got it.",
-    img: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=240&q=80",
-    imgAlt: "Engine bay — BMW inline-6 with all ancillaries",
+    desc: "Quality used parts for Volkswagen Golf, Polo, Transporter, Passat and more. Tested, catalogued, ready to fit.",
+    img: "https://images.unsplash.com/photo-1568844293986-8d0400bd4745?auto=format&fit=crop&w=240&q=80",
+    imgAlt: "Used Volkswagen engine and drivetrain parts laid out in workshop",
   },
   {
     num: "02",
     title: "Professional Wheel Refurb",
-    desc: "Professional alloy wheel repair and refinishing. Diamond cut, powder coat, painted — restored to factory spec or better.",
-    img: "https://images.unsplash.com/photo-1621361365424-06f0e1eb5c49?auto=format&fit=crop&w=240&q=80",
-    imgAlt: "Stacked alloy wheels in automotive workshop",
+    desc: "Kerbed, corroded or tired alloys brought back to showroom finish. Diamond cut, powder coat and full colour change available.",
+    img: "https://images.unsplash.com/photo-1611921561569-ba6b02184efe?auto=format&fit=crop&w=240&q=80",
+    imgAlt: "Diamond-cut alloy wheel freshly refurbished on lathe",
   },
   {
     num: "03",
     title: "Vehicle Remapping",
-    desc: "ECU tuning for power, torque and efficiency gains. Stage 1 and Stage 2 maps across all makes and models. Performance unlocked.",
-    img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=240&q=80",
-    imgAlt: "Modern car dashboard and instrument cluster",
+    desc: "Stage 1 and Stage 2 ECU remaps for performance, economy or both. Dyno-proven results across the VAG range.",
+    img: "https://images.unsplash.com/photo-1537984822441-cff330075342?auto=format&fit=crop&w=240&q=80",
+    imgAlt: "Laptop connected to OBD port for ECU remap on VW Golf",
   },
   {
     num: "04",
     title: "Recovery & Transportation",
-    desc: "24/7 vehicle recovery and transportation across Essex and London. Broken down or just moving — we'll get you sorted.",
-    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=240&q=80",
-    imgAlt: "Rear of a European car on open road at dusk",
+    desc: "24/7 vehicle recovery and transportation across the region. Low-loader and spec-lift available, insured and trade-approved.",
+    img: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=240&q=80",
+    imgAlt: "Recovery truck transporting vehicle on low-loader at night",
   },
   {
     num: "05",
     title: "MOTs",
-    desc: "Approved MOT testing centre. Fast, honest results with same-day retests available. No surprises, no nonsense.",
+    desc: "Class 4 MOTs carried out in-house. Honest assessments, clear advice, no upsells.",
     img: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=240&q=80",
-    imgAlt: "Brake disc and caliper assembly — garage inspection",
+    imgAlt: "Brake disc and caliper assembly during in-house MOT inspection",
   },
 ];
 
@@ -60,20 +60,21 @@ export default function Services() {
         }}
       >
         <div>
-          <span
-            style={{
-              fontFamily: "var(--font-space), sans-serif",
-              fontSize: "0.7rem",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: "var(--accent-light)",
-              display: "block",
-              marginBottom: "0.75rem",
-              fontWeight: 500,
-            }}
-          >
-            What We Do
-          </span>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "0.75rem" }}>
+            <div style={{ width: "24px", height: "1px", background: "linear-gradient(to right, var(--accent-light), transparent)" }} />
+            <span
+              style={{
+                fontFamily: "var(--font-space), sans-serif",
+                fontSize: "0.68rem",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "var(--accent-light)",
+                fontWeight: 600,
+              }}
+            >
+              What We Do
+            </span>
+          </div>
           <h2
             style={{
               fontFamily: "var(--font-bebas), sans-serif",
@@ -82,6 +83,7 @@ export default function Services() {
               color: "var(--text)",
               lineHeight: 1,
               margin: 0,
+              textShadow: "0 0 40px rgba(157, 78, 221, 0.15)",
             }}
           >
             THE FULL PACKAGE
@@ -105,7 +107,7 @@ export default function Services() {
         </a>
       </div>
 
-      {/* Services grid — 6-column base, items 1-3 span 2, items 4-5 span 3 */}
+      {/* Services grid — 6-col: items 0-2 span 2, items 3-4 span 3 */}
       <div
         className="services-grid"
         style={{
@@ -122,13 +124,14 @@ export default function Services() {
               padding: "2.5rem 2rem",
               borderRight: i === 2 || i === 4 ? "none" : "1px solid var(--border)",
               borderBottom: i < 3 ? "1px solid var(--border)" : "none",
-              background: "var(--surface)",
+              background: "#1A0F24",
+              border: `1px solid rgba(123,44,191,0.30)`,
               cursor: "default",
               position: "relative",
               overflow: "hidden",
             }}
           >
-            {/* Photo top-right */}
+            {/* Thumbnail top-right with duotone */}
             <div
               style={{
                 position: "absolute",
@@ -137,24 +140,37 @@ export default function Services() {
                 width: "110px",
                 height: "80px",
                 overflow: "hidden",
-                opacity: 0.35,
                 borderRadius: "2px",
+                flexShrink: 0,
               }}
             >
-              <Image src={s.img} alt={s.imgAlt} fill style={{ objectFit: "cover" }} />
+              <Image
+                src={s.img}
+                alt={s.imgAlt}
+                fill
+                style={{ objectFit: "cover", filter: "saturate(1.1) contrast(1.05)", opacity: 0.4 }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "linear-gradient(135deg, rgba(123,44,191,0.14), rgba(157,78,221,0.07))",
+                  mixBlendMode: "multiply",
+                }}
+              />
             </div>
 
             {/* Number */}
             <div
               className="service-num"
               style={{
-                fontFamily: "var(--font-bebas), sans-serif",
-                fontSize: "3.5rem",
-                lineHeight: 1,
-                color: "var(--accent)",
+                fontFamily: "var(--font-space), sans-serif",
+                fontSize: "0.72rem",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "var(--accent-light)",
+                fontWeight: 700,
                 marginBottom: "1.25rem",
-                letterSpacing: "0.04em",
-                opacity: 0.7,
               }}
             >
               {s.num}
@@ -164,10 +180,11 @@ export default function Services() {
             <h3
               style={{
                 fontFamily: "var(--font-bebas), sans-serif",
-                fontSize: "1.6rem",
+                fontSize: "1.75rem",
                 letterSpacing: "0.04em",
                 color: "var(--text)",
                 margin: "0 0 0.85rem 0",
+                lineHeight: 1.05,
               }}
             >
               {s.title}
@@ -177,7 +194,7 @@ export default function Services() {
             <p
               style={{
                 fontFamily: "var(--font-space), sans-serif",
-                fontSize: "0.875rem",
+                fontSize: "0.9rem",
                 lineHeight: 1.7,
                 color: "var(--muted)",
                 margin: 0,
@@ -192,32 +209,15 @@ export default function Services() {
 
       <style>{`
         @media (max-width: 900px) {
-          .services-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-          .services-grid .service-card {
-            grid-column: span 1 !important;
-            border-right: none !important;
-            border-bottom: 1px solid var(--border) !important;
-          }
-          .services-grid .service-card:nth-child(odd) {
-            border-right: 1px solid var(--border) !important;
-          }
-          .services-grid .service-card:last-child {
-            border-bottom: none !important;
-          }
+          .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .services-grid .service-card { grid-column: span 1 !important; border-right: none !important; border-bottom: 1px solid rgba(123,44,191,0.30) !important; }
+          .services-grid .service-card:nth-child(odd) { border-right: 1px solid rgba(123,44,191,0.30) !important; }
+          .services-grid .service-card:last-child { border-bottom: none !important; }
         }
         @media (max-width: 540px) {
-          .services-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .services-grid .service-card {
-            border-right: none !important;
-            border-bottom: 1px solid var(--border) !important;
-          }
-          .services-grid .service-card:last-child {
-            border-bottom: none !important;
-          }
+          .services-grid { grid-template-columns: 1fr !important; }
+          .services-grid .service-card { border-right: none !important; border-bottom: 1px solid rgba(123,44,191,0.30) !important; }
+          .services-grid .service-card:last-child { border-bottom: none !important; }
         }
       `}</style>
     </section>

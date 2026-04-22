@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 
-const IG_URL = "https://www.instagram.com/dubtech_customs";
+const IG_URL = "https://www.instagram.com/dubtech_customs/";
 
 function InstagramIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
       <circle cx="12" cy="12" r="5" />
       <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
@@ -30,24 +30,38 @@ export default function Hero() {
       >
         {/* Background photo */}
         <Image
-          src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?auto=format&fit=crop&w=1920&q=80"
-          alt="Modified VW Golf — dark moody automotive photography"
+          src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1920&q=80"
+          alt="VW Golf on custom alloys under workshop lighting — Dubtech Customs, Brentwood Essex"
           fill
           priority
-          style={{ objectFit: "cover", objectPosition: "center 40%" }}
+          style={{
+            objectFit: "cover",
+            objectPosition: "center 40%",
+            filter: "saturate(1.1) contrast(1.05)",
+          }}
         />
 
-        {/* Purple duotone overlay */}
+        {/* Purple duotone tint */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(135deg, rgba(123,44,191,0.14), rgba(157,78,221,0.07))",
+            mixBlendMode: "multiply",
+          }}
+        />
+
+        {/* Dark gradient for legibility */}
         <div
           style={{
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(135deg, rgba(15,8,24,0.97) 0%, rgba(15,8,24,0.82) 55%, rgba(31,18,48,0.60) 100%)",
+              "linear-gradient(135deg, rgba(15,8,24,0.97) 0%, rgba(15,8,24,0.82) 55%, rgba(31,18,48,0.55) 100%)",
           }}
         />
 
-        {/* Purple glow */}
+        {/* Purple glow accent */}
         <div
           style={{
             position: "absolute",
@@ -55,8 +69,7 @@ export default function Hero() {
             right: "15%",
             width: "700px",
             height: "500px",
-            background:
-              "radial-gradient(ellipse at center, rgba(123,44,191,0.22) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at center, rgba(123,44,191,0.22) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -69,11 +82,11 @@ export default function Hero() {
             <span
               style={{
                 fontFamily: "var(--font-space), sans-serif",
-                fontSize: "0.7rem",
-                letterSpacing: "0.2em",
+                fontSize: "0.68rem",
+                letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 color: "var(--accent-light)",
-                fontWeight: 500,
+                fontWeight: 600,
               }}
             >
               Brentwood, Essex — Custom Car Specialists
@@ -89,6 +102,7 @@ export default function Hero() {
               letterSpacing: "0.02em",
               color: "var(--text)",
               margin: "0 0 1rem 0",
+              textShadow: "0 0 40px rgba(157, 78, 221, 0.15)",
             }}
           >
             CUSTOM.
@@ -176,19 +190,19 @@ export default function Hero() {
                   alignItems: "center",
                   gap: "0.5rem",
                   fontFamily: "var(--font-space), sans-serif",
-                  fontSize: "0.72rem",
+                  fontSize: "0.7rem",
                   letterSpacing: "0.08em",
                   color: "var(--accent-light)",
                   textDecoration: "none",
                   border: "1px solid rgba(199,125,255,0.25)",
                   padding: "0.5rem 1rem",
-                  transition: "border-color 0.2s, color 0.2s",
+                  transition: "border-color 0.2s",
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(199,125,255,0.6)")}
                 onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(199,125,255,0.25)")}
               >
                 <InstagramIcon />
-                @dubtech_customs
+                Follow the build log · @dubtech_customs
               </a>
             </div>
           </div>

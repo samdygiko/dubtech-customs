@@ -7,6 +7,7 @@ import InstagramStrip from "./components/InstagramStrip";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import FloatingCTA from "./components/FloatingCTA";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <FloatingCTA />
     </>
   );
 }

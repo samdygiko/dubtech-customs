@@ -2,20 +2,20 @@
 
 import Image from "next/image";
 
-const IG_URL = "https://www.instagram.com/dubtech_customs";
+const IG_URL = "https://www.instagram.com/dubtech_customs/";
 
 const IG_POSTS = [
   {
-    src: "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?auto=format&fit=crop&w=400&q=80",
-    alt: "Modified car — Dubtech Customs build",
+    src: "https://images.unsplash.com/photo-1622199678703-5eb7d55ad77f?auto=format&fit=crop&w=400&q=80",
+    alt: "VW Golf MK7 silver — Dubtech Customs Instagram build post",
   },
   {
-    src: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=400&q=80",
-    alt: "Performance car — Dubtech Customs build",
+    src: "https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?auto=format&fit=crop&w=400&q=80",
+    alt: "Modified coupe on stance — Dubtech Customs Instagram",
   },
   {
-    src: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=400&q=80",
-    alt: "Audi build — Dubtech Customs",
+    src: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=400&q=80",
+    alt: "Car wheel detail and tyre profile — Dubtech Customs Instagram",
   },
 ];
 
@@ -33,24 +33,19 @@ export default function InstagramStrip() {
   return (
     <section
       style={{
-        background: "linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 50%, var(--surface) 100%)",
-        borderTop: "1px solid var(--border-strong)",
-        borderBottom: "1px solid var(--border-strong)",
-        padding: "4rem 2.5rem",
+        background: "linear-gradient(135deg, #7B2CBF 0%, #9D4EDD 100%)",
+        padding: "4.5rem 2.5rem",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* Background glow */}
+      {/* Subtle texture overlay */}
       <div
         style={{
           position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "800px",
-          height: "400px",
-          background: "radial-gradient(ellipse at center, rgba(123,44,191,0.15) 0%, transparent 70%)",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse at 70% 50%, rgba(199,125,255,0.12) 0%, transparent 60%)",
           pointerEvents: "none",
         }}
       />
@@ -66,75 +61,87 @@ export default function InstagramStrip() {
           flexWrap: "wrap",
         }}
       >
-        {/* Text + CTA */}
-        <div>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
-            <span style={{ color: "var(--accent-light)" }}>
-              <InstagramIcon size={22} />
-            </span>
+        {/* Left: text + CTA */}
+        <div style={{ flex: "1 1 320px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.65rem", marginBottom: "1rem" }}>
+            <InstagramIcon size={20} />
             <span
               style={{
                 fontFamily: "var(--font-space), sans-serif",
-                fontSize: "0.7rem",
-                letterSpacing: "0.2em",
+                fontSize: "0.68rem",
+                letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "var(--accent-light)",
-                fontWeight: 500,
+                color: "rgba(255,255,255,0.8)",
+                fontWeight: 600,
               }}
             >
               Follow us on Instagram
             </span>
           </div>
+
           <h2
             style={{
               fontFamily: "var(--font-bebas), sans-serif",
               fontSize: "clamp(2rem, 4vw, 3.5rem)",
               letterSpacing: "0.04em",
-              color: "var(--text)",
-              lineHeight: 1,
-              margin: "0 0 1.5rem 0",
+              color: "#ffffff",
+              lineHeight: 1.0,
+              margin: "0 0 0.85rem 0",
             }}
           >
-            See the latest<br />
-            <span style={{ color: "var(--accent-mid)" }}>builds on Instagram</span>
+            See the latest builds<br />on Instagram
           </h2>
+
+          <p
+            style={{
+              fontFamily: "var(--font-space), sans-serif",
+              fontSize: "0.9rem",
+              lineHeight: 1.6,
+              color: "rgba(255,255,255,0.75)",
+              margin: "0 0 1.75rem 0",
+              maxWidth: "380px",
+            }}
+          >
+            We post every project as it happens — before, during and after.
+          </p>
+
           <a
             href={IG_URL}
             target="_blank"
             rel="noopener noreferrer"
+            className="ig-cta-pill"
             style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "0.6rem",
               fontFamily: "var(--font-space), sans-serif",
-              fontSize: "0.75rem",
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
+              fontSize: "0.8rem",
+              letterSpacing: "0.08em",
               fontWeight: 700,
-              color: "var(--text)",
-              background: "var(--accent)",
-              padding: "0.85rem 1.75rem",
+              color: "#7B2CBF",
+              background: "#ffffff",
+              padding: "0.9rem 1.75rem",
               textDecoration: "none",
-              transition: "background 0.2s ease, box-shadow 0.2s ease",
+              transition: "background 0.2s ease, color 0.2s ease",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "var(--accent-mid)";
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 24px rgba(157,78,221,0.4)";
+              e.currentTarget.style.background = "rgba(255,255,255,0.1)";
+              e.currentTarget.style.color = "#ffffff";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "var(--accent)";
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
+              e.currentTarget.style.background = "#ffffff";
+              e.currentTarget.style.color = "#7B2CBF";
             }}
           >
             <InstagramIcon size={15} />
-            @dubtech_customs
+            Follow @dubtech_customs
           </a>
         </div>
 
-        {/* Decorative post squares */}
+        {/* Right: 3 decorative IG tiles */}
         <div
           className="ig-posts"
-          style={{ display: "flex", gap: "0.75rem" }}
+          style={{ display: "flex", gap: "0.85rem", flexShrink: 0 }}
         >
           {IG_POSTS.map((post, i) => (
             <a
@@ -144,30 +151,41 @@ export default function InstagramStrip() {
               rel="noopener noreferrer"
               style={{
                 display: "block",
-                width: "120px",
-                height: "120px",
                 position: "relative",
-                overflow: "hidden",
-                border: "1px solid var(--border)",
+                width: "130px",
+                height: "130px",
                 flexShrink: 0,
-                transition: "border-color 0.25s ease, transform 0.25s ease",
+                borderRadius: "4px",
+                overflow: "hidden",
+                /* Instagram-style gradient border via box-shadow */
+                outline: "2px solid transparent",
+                boxShadow: "0 0 0 2px #C77DFF, 0 0 0 4px rgba(157,78,221,0.4)",
+                transition: "transform 0.25s ease, box-shadow 0.25s ease",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--accent-mid)";
-                (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-3px)";
+                e.currentTarget.style.transform = "translateY(-4px)";
+                e.currentTarget.style.boxShadow = "0 0 0 2px #ffffff, 0 0 0 4px rgba(199,125,255,0.5), 0 8px 24px rgba(0,0,0,0.3)";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
-                (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 0 0 2px #C77DFF, 0 0 0 4px rgba(157,78,221,0.4)";
               }}
             >
-              <Image src={post.src} alt={post.alt} fill style={{ objectFit: "cover" }} />
+              <Image
+                src={post.src}
+                alt={post.alt}
+                fill
+                style={{
+                  objectFit: "cover",
+                  filter: "saturate(1.1) contrast(1.05)",
+                }}
+              />
               <div
                 style={{
                   position: "absolute",
                   inset: 0,
-                  background: "rgba(15,8,24,0.2)",
-                  transition: "background 0.25s ease",
+                  background: "linear-gradient(135deg, rgba(123,44,191,0.14), rgba(157,78,221,0.07))",
+                  mixBlendMode: "multiply",
                 }}
               />
             </a>
@@ -176,7 +194,7 @@ export default function InstagramStrip() {
       </div>
 
       <style>{`
-        @media (max-width: 640px) {
+        @media (max-width: 700px) {
           .ig-posts { display: none !important; }
         }
       `}</style>

@@ -2,40 +2,46 @@ import Image from "next/image";
 
 const GALLERY_ITEMS = [
   {
-    src: "https://images.unsplash.com/photo-1622199678703-5eb7d55ad77f?auto=format&fit=crop&w=800&q=80",
-    alt: "Volkswagen Golf MK7 — silver hatchback front view",
-    label: "VW Golf Remap",
+    src: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=900&q=80",
+    alt: "Audi A4 silver saloon on open road — VW Group platform, Stage 1 remap candidate",
+    caption: "Golf MK7 · Stage 2 Remap",
     span: 2,
+    aspect: "16/10" as const,
   },
   {
-    src: "https://images.unsplash.com/photo-1621361365424-06f0e1eb5c49?auto=format&fit=crop&w=600&q=80",
-    alt: "Alloy wheel refurbishment — polished diamond cut finish",
-    label: "Wheel Refurb",
+    src: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=600&q=80",
+    alt: "VW Polo front detail under dramatic lighting in workshop bay",
+    caption: "Polo 6R · Diamond Cut Refurb",
     span: 1,
+    aspect: "3/4" as const,
   },
   {
-    src: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=600&q=80",
-    alt: "Engine bay — clean installation with all ancillaries",
-    label: "Engine Work",
+    src: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=600&q=80",
+    alt: "Volkswagen Transporter T5 in workshop awaiting full parts strip",
+    caption: "Transporter T5 · Full Parts Strip",
     span: 1,
+    aspect: "4/3" as const,
   },
   {
-    src: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=600&q=80",
-    alt: "Modern European car interior dashboard",
-    label: "Interior Detail",
+    src: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600&q=80",
+    alt: "Custom alloy wheel build on Passat B8 — finished and fitted",
+    caption: "Passat B8 · Custom Wheel Build",
     span: 1,
+    aspect: "1/1" as const,
   },
   {
-    src: "https://images.unsplash.com/photo-1632823471565-1ecdf5e50b51?auto=format&fit=crop&w=600&q=80",
-    alt: "Gearbox and transmission — 6-speed manual",
-    label: "Gearbox Swap",
+    src: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=600&q=80",
+    alt: "VW Caddy under workshop lights during full build project",
+    caption: "Caddy · Workshop Build",
     span: 1,
+    aspect: "3/4" as const,
   },
   {
-    src: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
-    alt: "Lowered sports car — stance build side profile",
-    label: "Stance Build",
+    src: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=900&q=80",
+    alt: "Golf GTI with ECU tune complete — Dubtech Customs dyno session",
+    caption: "Golf GTI · ECU Tune Complete",
     span: 2,
+    aspect: "16/10" as const,
   },
 ];
 
@@ -51,20 +57,21 @@ export default function Gallery() {
     >
       {/* Header */}
       <div style={{ marginBottom: "2.5rem" }}>
-        <span
-          style={{
-            fontFamily: "var(--font-space), sans-serif",
-            fontSize: "0.7rem",
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-            color: "var(--accent-light)",
-            display: "block",
-            marginBottom: "0.75rem",
-            fontWeight: 500,
-          }}
-        >
-          Previous Work
-        </span>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "0.75rem" }}>
+          <div style={{ width: "24px", height: "1px", background: "linear-gradient(to right, var(--accent-light), transparent)" }} />
+          <span
+            style={{
+              fontFamily: "var(--font-space), sans-serif",
+              fontSize: "0.68rem",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "var(--accent-light)",
+              fontWeight: 600,
+            }}
+          >
+            Previous Work
+          </span>
+        </div>
         <h2
           style={{
             fontFamily: "var(--font-bebas), sans-serif",
@@ -73,6 +80,7 @@ export default function Gallery() {
             color: "var(--text)",
             lineHeight: 1,
             margin: 0,
+            textShadow: "0 0 40px rgba(157, 78, 221, 0.15)",
           }}
         >
           THE WORK
@@ -94,7 +102,7 @@ export default function Gallery() {
             className="gallery-card"
             style={{
               gridColumn: `span ${item.span}`,
-              aspectRatio: item.span === 2 ? "16/10" : "4/3",
+              aspectRatio: item.aspect,
               position: "relative",
               overflow: "hidden",
               border: "1px solid var(--border)",
@@ -108,31 +116,44 @@ export default function Gallery() {
               alt={item.alt}
               fill
               className="gallery-img"
-              style={{ objectFit: "cover", transition: "transform 0.4s ease" }}
+              style={{
+                objectFit: "cover",
+                transition: "transform 0.4s ease",
+                filter: "saturate(1.1) contrast(1.05)",
+              }}
             />
-            {/* Gradient overlay */}
+            {/* Purple duotone overlay */}
             <div
               style={{
                 position: "absolute",
                 inset: 0,
-                background: "linear-gradient(to top, rgba(15,8,24,0.75) 0%, transparent 55%)",
+                background: "linear-gradient(135deg, rgba(123,44,191,0.14), rgba(157,78,221,0.07))",
+                mixBlendMode: "multiply",
               }}
             />
-            {/* Label */}
+            {/* Dark gradient for caption */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(to top, rgba(15,8,24,0.80) 0%, transparent 50%)",
+              }}
+            />
+            {/* Caption */}
             <span
               style={{
                 position: "absolute",
-                bottom: "0.75rem",
-                left: "0.85rem",
+                bottom: "0.85rem",
+                left: "0.9rem",
                 fontFamily: "var(--font-space), sans-serif",
-                fontSize: "0.68rem",
+                fontSize: "0.65rem",
                 letterSpacing: "0.16em",
                 textTransform: "uppercase",
                 color: "var(--accent-light)",
-                fontWeight: 500,
+                fontWeight: 600,
               }}
             >
-              {item.label}
+              {item.caption}
             </span>
           </div>
         ))}
@@ -140,26 +161,15 @@ export default function Gallery() {
 
       <style>{`
         @media (prefers-reduced-motion: no-preference) {
-          .gallery-card:hover {
-            border-color: var(--border-strong) !important;
-          }
-          .gallery-card:hover .gallery-img {
-            transform: scale(1.04);
-          }
+          .gallery-card:hover { border-color: var(--border-strong) !important; }
+          .gallery-card:hover .gallery-img { transform: scale(1.04); }
         }
         @media (max-width: 768px) {
-          .gallery-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-          .gallery-grid .gallery-card {
-            grid-column: span 1 !important;
-            aspect-ratio: 4/3 !important;
-          }
+          .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .gallery-grid .gallery-card { grid-column: span 1 !important; aspect-ratio: 4/3 !important; }
         }
         @media (max-width: 480px) {
-          .gallery-grid {
-            grid-template-columns: 1fr !important;
-          }
+          .gallery-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>
