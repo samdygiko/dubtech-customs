@@ -12,8 +12,8 @@ const SERVICES = [
     num: "02",
     title: "Professional Wheel Refurb",
     desc: "Kerbed, corroded or tired alloys brought back to showroom finish. Diamond cut, powder coat and full colour change available.",
-    img: "https://images.unsplash.com/photo-1611921561569-ba6b02184efe?auto=format&fit=crop&w=400&q=80",
-    imgAlt: "Refurbished alloy wheel detail",
+    img: "https://images.unsplash.com/photo-1626668893632-6f3a4466d22f?auto=format&fit=crop&w=400&q=80",
+    imgAlt: "Diamond cut alloy wheel close-up",
   },
   {
     num: "03",
