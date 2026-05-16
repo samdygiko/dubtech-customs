@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const IG_URL = "https://www.instagram.com/dubtech_customs";
 
@@ -52,16 +53,34 @@ export default function Nav() {
         <a
           href="#"
           style={{
-            fontFamily: "var(--font-bebas), sans-serif",
-            fontSize: "1.5rem",
-            letterSpacing: "0.08em",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.75rem",
             color: "var(--text)",
             textDecoration: "none",
             lineHeight: 1,
           }}
         >
-          DUBTECH
-          <span style={{ color: "var(--accent-mid)", marginLeft: "0.15em" }}>CUSTOMS</span>
+          <Image
+            src="/images/dubtech-logo.webp"
+            alt="Dubtech Customs"
+            width={192}
+            height={192}
+            priority
+            style={{ height: "48px", width: "auto", display: "block" }}
+          />
+          <span
+            style={{
+              fontFamily: "var(--font-bebas), sans-serif",
+              fontSize: "2.25rem",
+              fontWeight: 700,
+              letterSpacing: "0.06em",
+              lineHeight: 1,
+            }}
+          >
+            DUBTECH
+            <span style={{ color: "var(--accent-mid)", marginLeft: "0.15em" }}>CUSTOMS</span>
+          </span>
         </a>
 
         {/* Desktop nav links */}
